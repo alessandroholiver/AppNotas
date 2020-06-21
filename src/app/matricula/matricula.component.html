@@ -1,0 +1,30 @@
+<div class="row mt-4">
+  <div class="col-md-4" style="height: 450px;">
+    <div class="row col-md-12 my-auto side-heder">
+      <h1>Cadastro de Matricula</h1>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <form [formGroup]="registerForm">
+      <br/>
+      <div class="form-group required">
+        <label for="">Tipo de matrícula:</label>
+        <input type="text" class="form-control" formControlName="TipoMatricula"
+        [ngClass]="{'is-invalid': registerForm.get('TipoMatricula').errors &&
+                                  registerForm.get('TipoMatricula').touched }"
+          placeholder="Insira o tipo de matrícula"/>
+        <div *ngIf="registerForm.get('TipoMatricula').hasError('required') &&
+                    registerForm.get('TipoMatricula').touched"
+          class="invalid-feedback">
+          Tipo é obrigatório.
+        </div>
+      </div>
+         <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+          <button class="btn btn-lg btn-success btn-block"
+          (click)="cadastrarMatricula()">Cadastrar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
